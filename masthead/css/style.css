@@ -979,7 +979,7 @@ keyframes
   }
 
   .fa-facebook:hover{
-    transition: 750ms;
+   
     color: #3B5998;
   }
 
@@ -1329,26 +1329,27 @@ keyframes
        OUR TEAM SECTION 
        ----------------------------------------------------------------*/
        .our-team{
-        
-  background: url("../img/contact.jpg") center center no-repeat;
-  background-size: cover;
-  background-attachment: fixed; 
-       }
+        background-color: black;
+      }
 
        .our-team-title{
   font-family: 'Product Sans', sans-serif;
   font-size: 36px;
-  color: #13171c;
+  color: white;
   margin-left: 100px;
 }
+
+      .content{
+        color:white;
+      }
 
        .zoom {
     display: block;
   border-radius:50%;
   overflow: hidden;
   /*border: 1px solid ;*/
-  height: 100px;
-  width: 100px;
+  height: 130px;
+  width: 130px;
   margin: 10px;
     
   } 
@@ -1356,7 +1357,7 @@ keyframes
 .zoom img{
   border-radius: 100%;
   /*border: 1px solid red ;*/
-  transition: all 0.5s ease;
+  transition: all 1s ease;
   position: relative;
   height: 100%;
   width: 100%;
@@ -1378,8 +1379,7 @@ keyframes
 }
 .zoom:hover .mask{
   opacity: 1;
-  color: white;
-  transform: translateY(-80px) translateX(40px);
+  transform: translateY(-55px) translateX(40px);
 }
 .mask{
   opacity: 0;
@@ -1391,7 +1391,25 @@ keyframes
   transform: translateX(250px);
 }
 .zoom:hover .mask .fa-linkedin{
-  transform: translateX(-7px) translateY(0px);
+  transform: translateX(-6px) translateY(0px);
+  /*color : blue;*/
+}
+.mask .fa{
+    transition: 750ms;
+    color: white;
+    font-size: 26px;
+  }
+
+.mask .fa-linkedin:hover{
+  color:#4875B4;
+}
+.mask .fa-facebook:hover{
+  color:#3C5A99;
+  /*transform: translateX(-50px) translateY(0px);*/
+}
+.zoom:hover .mask .fa-facebook{
+  /*transform: translateX(-20px) translateY(0px);*/
+  /*color : red;*/
 }
 /* Contact Section */
 
