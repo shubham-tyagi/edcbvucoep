@@ -1357,7 +1357,7 @@ keyframes
 .zoom img{
   border-radius: 100%;
   /*border: 1px solid red ;*/
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   position: relative;
   height: 100%;
   width: 100%;
@@ -1372,10 +1372,12 @@ keyframes
   margin-right: auto;
   width: 50%;
 }
-.zoom:hover img{
-  transform: scale(1.4);
-  /*overflow: hidden;*/
+.zoom:hover .rotate{
+  transform: rotate(-90deg) scale(1.6);
 
+}
+.zoom:hover img{
+  transform: scale(1.6);
 }
 .zoom:hover .mask{
   opacity: 1;
@@ -1384,15 +1386,18 @@ keyframes
 .mask{
   opacity: 0;
   /*transform: translateY(30px);*/
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   
 }
 .mask .fa-linkedin{
-  transform: translateX(250px);
+  transform: translateX(100px);
 }
 .zoom:hover .mask .fa-linkedin{
-  transform: translateX(-6px) translateY(0px);
+  transform: translateX(-7px);
   /*color : blue;*/
+}
+.zoom .mask .fa-linkedin{
+  transition: all 0.5s ease;
 }
 .mask .fa{
     transition: 750ms;
@@ -1411,6 +1416,12 @@ keyframes
   /*transform: translateX(-20px) translateY(0px);*/
   /*color : red;*/
 }
+.rotate{
+  transform: rotate(-90deg);
+}
+
+
+
 /* Contact Section */
 
 .contact{
