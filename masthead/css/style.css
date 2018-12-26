@@ -918,7 +918,7 @@ keyframes
 
 .proposal-bttn span, .register-bttn span{
   padding: 18px 20px 18px 20px;
-  border: 2px solid #13171c;
+  /*border: 2px solid #13171c;*/
   border-width: 2px;
   transition: 500ms;
   cursor: pointer;
@@ -1330,17 +1330,38 @@ keyframes
        ----------------------------------------------------------------*/
        .our-team{
         background-color: black;
+
       }
+
+    .our{
+      color: red;
+      /*opacity:0.5;*/
+    }
 
        .our-team-title{
   font-family: 'Product Sans', sans-serif;
   font-size: 36px;
   color: white;
   margin-left: 100px;
+  opacity:0.5;
+}
+
+.our-team-intro{
+  font-size: 20px;
+  color:white;
+  opacity: 0.3;
 }
 
       .content{
         color:white;
+        opacity: 0.5;
+        font-size:20px;
+      }
+      
+      .content1{
+        color:white;
+        opacity:0.3;
+        font-size:15px;
       }
 
        .zoom {
