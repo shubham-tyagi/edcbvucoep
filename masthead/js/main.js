@@ -1,249 +1,164 @@
-jQuery(document).ready(function(){
-  if( $('.cd-stretchy-nav').length > 0 ) {
-    var stretchyNavs = $('.cd-stretchy-nav');
-    
-    stretchyNavs.each(function(){
-      var stretchyNav = $(this),
-        stretchyNavTrigger = stretchyNav.find('.cd-nav-trigger');
-      
-      stretchyNavTrigger.on('click', function(event){
-        event.preventDefault();
-        stretchyNav.toggleClass('nav-is-visible');
-      });
-    });
+  var element_position = $('#scroll-to').offset().top;
+var screen_height = $(window).height();
+var activation_offset = 0.3;//determines how far up the the page the element needs to be before triggering the function
+var activation_point = element_position - (screen_height * activation_offset);
+var max_scroll_height = $('body').height() - screen_height - 5;//-5 for a little bit of buffer
 
-    $(document).on('click', function(event){
-      ( !$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span') ) && stretchyNavs.removeClass('nav-is-visible');
-    });
-  }
+//Does something when user scrolls to it OR
+//Does it when user has reached the bottom of the page and hasn't triggered the function yet
+$(window).on('scroll', function() {
+    var y_scroll_pos = window.pageYOffset;
 
-var h=$('.hero').offset().top;
-var a=$('.about').offset().top;
-var p=$('#portfolio').offset().top;
-var t=$('.testimonials').offset().top;
-var c=$('.contact').offset().top;
+    var element_in_view = y_scroll_pos > activation_point;
+    var has_reached_bottom_of_page = max_scroll_height <= y_scroll_pos && !element_in_view;
 
-$(window).scroll(function(){
-   var y=$('body').scrollTop();
-   if(y>=a && y<t){
-     $('.link').addClass('color-link')
-   }
-   else{
-     $('.link').removeClass('color-link')
-   }
-})
+    if(element_in_view||has_reached_bottom_of_page) {
+        //Do something
+        counting();
+ 	counting1();
+ 	counting2();
+ 	counting3();
+    }
+});
+ 	var count=document.getElementById('counter').innerText;
+ 	var temp=count-0
+ 	function counting (){
+ 		if(temp<=2000){
+ 			setTimeout(function(){
+ 				document.getElementById('counter').innerText=temp;
+ 				temp=temp+2;
+ 				counting();
+ 			},70);
+ 		}
+ 			else{
+ 				setTimeout(function(){
+ 					document.getElementById('counter').innerText=2000;
+ 				},40)
+ 			}
+ 		}
+ 		
+ 	var count1=document.getElementById('counter1').innerText;
+ 	var temp1=count1-0
+ 	function counting1 (){
+ 		if(temp1<=2000){
+ 			setTimeout(function(){
+ 				document.getElementById('counter1').innerText=temp1;
+ 				temp1=temp1+2;
+ 				counting1();
+ 			},70);
+ 		}
+ 			else{
+ 				setTimeout(function(){
+ 					document.getElementById('counter1').innerText=2000;
+ 				},70)
+ 			}
+ 		}
 
-  setTimeout(function(){
-    $('.scroll-link').removeClass('jabardasti')
-  }, 800)
+ 		var count2=document.getElementById('counter2').innerText;
+ 	var temp2=count2-0;
+ 	function counting2 (){
+ 		if(temp2<=2000){
+ 			setTimeout(function(){
+ 				document.getElementById('counter2').innerText=temp2;
+ 				temp2=temp2+2;
+ 				counting2();
+ 			},70);
+ 		}
+ 			else{
+ 				setTimeout(function(){
+ 					document.getElementById('counter2').innerText=2000;
+ 				},70)
+ 			}
+ 		}
 
-        setInterval(function(){
-      var htemp=$(window).innerHeight();
-      var pdd=htemp/2;
-      pdd=pdd-175;
-    $('.hero').css('height', ''+htemp+'');
-    $('.hero').css('padding-top', ''+pdd+'px');
-  }, 10)
 
-  setInterval(function(){
-    $('.scroll-link').addClass('neeche')
-      setTimeout(function(){
-        $('.scroll-link').removeClass('neeche')
-    }, 900)
-  }, 1800)
+ 		var count3=document.getElementById('counter3').innerText;
+ 	var temp3=count3-0;
+ 	function counting3 (){
+ 		if(temp3<=2000){
+ 			setTimeout(function(){
+ 				document.getElementById('counter3').innerText=temp3;
+ 				temp3=temp3+2;
+ 				counting3();
+ 			},70);
+ 		}
+ 			else{
+ 				setTimeout(function(){
+ 					document.getElementById('counter3').innerText=2000;
+ 				},70)
+ 			}
+ 		}
+ 	
+ 	
+  // Original JavaScript code by Chirp Internet: www.chirp.com.au
+  // Please acknowledge use of this code by including this header.
 
-  $(window).resize(function(){
-    var wid=$('.portfolio-img').width();
-    $('.details').css('width', ''+wid+'');
-    var htemp=$(window).innerHeight();
-    $('.hero').css('height', ''+htemp+'');
-  })
+  window.addEventListener("DOMContentLoaded", function(e) {
 
-  $(window).load(function(){
-    var wid=$('.portfolio-img').width();
-    $('.details').css('width', ''+wid+'');
-    var htemp=$(window).innerHeight();
-    $('.hero').css('height', ''+htemp+'');
-  })
-
-  $('.box1').hover(function(){
-    setTimeout(function(){
-      $('.box1 .stuff').toggleClass('show')
-      $('.box1 .img-init').toggleClass('img-init-active')
-    }, 500)
-  })
-
-  $('.box2').hover(function(){
-    setTimeout(function(){
-      $('.box2 .stuff').toggleClass('show')
-      $('.box2 .img-init').toggleClass('img-init-active')
-    }, 500)
-  })
-
-  $('.box3').hover(function(){
-    setTimeout(function(){
-      $('.box3 .stuff').toggleClass('show')
-      $('.box3 .img-init').toggleClass('img-init-active')
-    }, 500)
-  })
-
-  $('.box4').hover(function(){
-    setTimeout(function(){
-      $('.box4 .stuff').toggleClass('show')
-      $('.box4 .img-init').toggleClass('img-init-active')
-    }, 500)
-  })
-
-  $('.scroll-link').click(function(){
-    $('html, body').animate({ scrollTop: $('.about').offset().top}, 750)
-  })
-
-  $('.author').click(function(){
-    window.open("https://github.com/EDCBVUCOEP")
-  })
-
-  $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-    }).on("focus", ".floating-label-form-group", function() {
-        $(this).addClass("floating-label-form-group-with-focus");
-    }).on("blur", ".floating-label-form-group", function() {
-        $(this).removeClass("floating-label-form-group-with-focus");
-    })
-
-    $("#portfolio-flters li").click(function(){
-      $("#portfolio-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
-      var selectedFilter = $(this).data("filter");
-      $("#portfolio-wrapper").fadeTo(100, 0);
-      $(".portfolio-item").fadeOut().css('transform', 'scale(0)');
-      setTimeout(function() {
-          $(selectedFilter).fadeIn(100).css('transform', 'scale(1)');
-          $("#portfolio-wrapper").fadeTo(300, 1);
-      }, 300);
-    })
-
-    $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
-    preventSubmit: true,
-    submitError: function($form, event, errors) {
-      // additional error messages or events
-    },
-    submitSuccess: function($form, event) {
-      event.preventDefault(); // prevent default submit behaviour
-      // get values from FORM
-      var name = $("input#name").val();
-      var email = $("input#email").val();
-      var phone = $("input#phone").val();
-      var message = $("textarea#message").val();
-      var firstName = name; // For Success/Failure Message
-      // Check for white space in name for Success/Fail message
-      if (firstName.indexOf(' ') >= 0) {
-        firstName = name.split(' ').slice(0, -1).join(' ');
-      }
-      $this = $("#sendMessageButton");
-      $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
-      $.ajax({
-        url: "././mail/contact_me.php",
-        type: "POST",
-        data: {
-          name: name,
-          phone: phone,
-          email: email,
-          message: message
-        },
-        cache: false,
-        success: function() {
-          // Success message
-          $('#success').html("<div class='alert alert-success'>");
-          $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-            .append("</button>");
-          $('#success > .alert-success')
-            .append("<strong>Your message has been sent. </strong>");
-          $('#success > .alert-success')
-            .append('</div>');
-          //clear all fields
-          $('#contactForm').trigger("reset");
-        },
-        error: function() {
-          // Fail message
-          $('#success').html("<div class='alert alert-danger'>");
-          $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-            .append("</button>");
-          $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!"));
-          $('#success > .alert-danger').append('</div>');
-          //clear all fields
-          $('#contactForm').trigger("reset");
-        },
-        complete: function() {
-          setTimeout(function() {
-            $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
-          }, 1000);
-        }
-      });
-    },
-    filter: function() {
-      return $(this).is(":visible");
-    },
-  });
-
-    var h=$('.hero').offset().top;
-    var a=$('.about').offset().top;
-    var p=$('#portfolio').offset().top;
-    var t=$('.testimonials').offset().top;
-    var c=$('.contact').offset().top;
-
-    var activate_link=function(y){
-      if(y>=h && y<a){
-        $('.link').removeClass('active')
-        $('.home-link').addClass('active')
-      }
-      else if(y>=a && y<p){
-        $('.link').removeClass('active')
-        $('.about-link').addClass('active')
-      }
-      else if(y>=p && y<t){
-        $('.link').removeClass('active')
-        $('.events-link').addClass('active')
-      }
-      else if(y>=t && y<c){
-        $('.link').removeClass('active')
-        $('.testi-link').addClass('active')
-      }
-      else{
-        $('.link').removeClass('active')
-        $('.contact-link').addClass('active')
-      }
+    var stage = document.getElementById("stage");
+    var fadeComplete = function(e) { stage.appendChild(arr[0]); };
+    var arr = stage.getElementsByTagName("img");
+    for(var i=0; i < arr.length; i++) {
+      arr[i].addEventListener("animationend", fadeComplete, false);
     }
 
-    $(window).scroll(function(){
-      var y=$('body, html').scrollTop();
+  }, false);
+  
+ $(document).ready(function(){
+  console.log("hey");
+  $(".without-value1 input").on("input propertychange",function(e){
+    $(".without-value1").toggleClass("with-value1",!!$(e.target).val());
+  });
+  $(".without-value2 input").on("input propertychange",function(e){
+    $(".without-value2").toggleClass("with-value1",!!$(e.target).val());
+  });
+  $(".without-value3 input").on("input propertychange",function(e){
+    $(".without-value3").toggleClass("with-value1",!!$(e.target).val());
+  });
+  $(".without-value4 textarea").on("input propertychange",function(e){
+    $(".without-value4").toggleClass("with-value1",!!$(e.target).val());
+  });
 
-      activate_link(y);
-
-      if(y>=a && y<t){
-        $('.link span').addClass('color-link')
-      }
-
-      else{
-        $('.link span').removeClass('color-link')
-      }
+  $(".without-value1 input").on("focus", function() {
+        $(".without-value1").addClass("with-focus");
     })
-
-    $("a[data-toggle=\"tab\"]").click(function(e) {
-      e.preventDefault();
-      $(this).tab("show");
+    $(".without-value1 input").on("blur", function() {
+        $(".without-value1").removeClass("with-focus");
     });
 
-    $('.proposal-bttn').click(function(){
-      window.open("http://conclave.edcbvucoep.com")
+    $(".without-value2 input").on("focus", function() {
+        $(".without-value2").addClass("with-focus");
     })
+    $(".without-value2 input").on("blur", function() {
+        $(".without-value2").removeClass("with-focus");
+    });
 
-    $('.register-bttn').click(function(){
-      window.open("http://conclave.edcbvucoep.com/stu_reg.php")
+    $(".without-value3 input").on("focus", function() {
+        $(".without-value3").addClass("with-focus");
     })
+    $(".without-value3 input").on("blur", function() {
+        $(".without-value3").removeClass("with-focus");
+    });
 
-  /*When clicking on Full hide fail/success boxes */
-  $('#name').focus(function() {
-      $('#success').html('');
-  })
+    $(".without-value4 textarea").on("focus", function() {
+        $(".without-value4").addClass("with-focus");
+    })
+    $(".without-value4 textarea").on("blur", function() {
+        $(".without-value4").removeClass("with-focus");
+    });
+});
 
-})
+ //  $(#name)(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
+
+  
+
+  //   setInterval(function(){
+  //   $('.scroll-link').addClass('neeche')
+  //     setTimeout(function(){
+  //       $('.scroll-link').removeClass('neeche')
+  //   }, 900)
+  // }, 1800);
+
+  //    setTimeout(function(){
+  //   $('.scroll-link').removeClass('jabardasti')
+  // }, 800); 

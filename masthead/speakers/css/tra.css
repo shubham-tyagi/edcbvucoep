@@ -1,0 +1,28 @@
+.b{
+    position: fixed;
+    /*left:103px;*/
+	width: 200px;
+	height: 200px;
+	transform: translateY(-18px);
+	background-color: green;
+transition: transform 2000ms cubic-bezier(1,-1.13, 0, 1.68);
+pointer-events: none;		
+	border-radius: 12px;
+   
+}
+.b1{
+	position: fixed;
+    left:100px;
+	top:100px;
+	border: darkgrey solid;
+	width: 200px;
+	height:200px;
+	background-color: grey;
+	border-radius: 10px;
+	border-width:12px;
+	
+}
+.b1:hover .b{
+	transform: translateX(400px) rotate(180deg) translateY(18px);
+
+}
