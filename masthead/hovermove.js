@@ -1,4 +1,7 @@
+
+
 let canvas = document.querySelector('canvas')
+let masthead=document.querySelector('masthead')
 canvas.height=window.innerHeight;
 canvas.width=window.innerWidth;
 c=canvas.getContext('2d');
@@ -50,7 +53,7 @@ function circle(x,y,dx,dy,radius)
     this.dx=dx;
     this.dy=dy;
     this.radius=radius;
-    this.colour=['#7C9D92','#C8E9DE','#AFD0C5','#95B6AB','#2F5045'];
+    this.colour=['#97BABE','#5C9FA5','#42858B','#7da0a4','#0f5258'];
     this.color=this.colour[Math.floor(Math.random()*6)];
 
     this.create=function()
@@ -61,6 +64,7 @@ function circle(x,y,dx,dy,radius)
         c.fill();
         // c.stroke();
     }
+    // innerHeight=24;
 
     this.update=function()
     { 
@@ -123,3 +127,27 @@ for(let i=0;i<600;i++)
 // }
 init();
 move();
+let elemTop;
+function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    // var docViewBottom = docViewTop + $(window).height();
+     elemTop = $(elem).offset().top;
+    // var elemBottom = elemTop + $(elem).height();
+    // return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    return ( elemTop <= docViewTop);
+}
+
+$(window).scroll(function() {    
+    if(isScrolledIntoView($('.temp')))
+    {
+        $('.nav').css("opacity","1");
+    }
+    else{
+        $('.nav').css("opacity","0");
+
+    }    
+});
+// let w = document.querySelector('.temp');
+// let w1=w.width;
+// console.log(w1);
